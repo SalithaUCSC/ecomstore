@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PageController@shop');
+Route::get('/', 'PageController@index')->name('index');
 
 Auth::routes(['verify' => true]);
 
@@ -37,7 +37,11 @@ Route::post('/remove', 'CartController@remove')->name('cart.remove');
 Route::get('/checkout', 'CartController@checkout')->name('cart.checkout');
 Route::post('/wishlist', 'CartController@wishlist')->name('cart.wishlist');
 Route::post('/remove_wish', 'CartController@remove_wish')->name('wishlist.remove');
+Route::post('/move_to_cart', 'CartController@move_to_cart')->name('wishlist.move');
 Route::post('/update', 'CartController@update_cart')->name('cart.update');
+Route::post('/stripe', 'CartController@stripePost')->name('stripe.post');
+//Route::get('/stripe', 'CartController@index');
+Route::post('/store', 'CartController@stripePost');
 
 Route::post('/save', 'CartController@save')->name('cart.save');
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 80px">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -67,8 +67,6 @@
                                                id="quantity" name="quantity" style="width: 70px; margin-right: 10px;">
                                         <button class="btn btn-secondary btn-sm" style="margin-right: 25px;"><i class="fa fa-edit"></i></button>
                                     </div>
-
-
                                 </form>
                                 <form action="{{ route('cart.remove') }}" method="POST">
                                     {{ csrf_field() }}
@@ -88,7 +86,7 @@
                                         <button class="btn btn-danger btn-sm"><i class="fa fa-heart"></i></button>
                                     </form>
                                 @else
-                                    <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#loginModal"><i class="fa fa-heart"></i></button>
+                                    <button class="btn btn-success btn-sm" style="margin-right: 10px; height: 35px;" data-toggle="modal" data-target="#loginModal"><i class="fa fa-heart"></i></button>
                                     <div class="modal fade" id="loginModal" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -136,7 +134,7 @@
         <br><br>
         <hr>
         @if(auth()->check())
-            <h4>{{ count($wishesList) > 0 ? count($wishesList): 'No'}} Product(s) Saved For Later</h4><br>
+            <h4>{{ count($wishesList) > 0 ? count($wishesList): 'No'}} Record(s) Saved For Later</h4><br>
             <div class="row">
                 @if(count($wishesList)>0)
                     @foreach($wishesList as $wish)
@@ -153,6 +151,16 @@
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="row">
+                                        <form action="{{ route('wishlist.move') }}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" value="{{ $wish->id }}" id="id" name="id">
+                                            <input type="hidden" value="{{ $wish->prod_name }}" id="name" name="name">
+                                            <input type="hidden" value="{{ $wish->prod_price }}" id="price" name="price">
+                                            <input type="hidden" value="{{ $wish->prod_quantity }}" id="quantity" name="quantity">
+                                            <input type="hidden" value="{{ $wish->prod_image }}" id="image" name="image">
+                                            <input type="hidden" value="{{ $wish->prod_slug }}" id="slug" name="slug">
+                                            <button class="btn btn-warning btn-sm" style="margin-right: 10px;"><i class="fa fa-shopping-cart"></i></button>
+                                        </form>
                                         <form action="{{ route('wishlist.remove') }}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" value="{{ $wish->id }}" id="id" name="id">

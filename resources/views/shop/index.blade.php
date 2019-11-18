@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 80px">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -103,8 +103,10 @@
                                         <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
                                         <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
                                         <input type="hidden" value="1" id="quantity" name="quantity">
-                                        <div class="row">
-{{--                                            <button class="btn btn-primary btn-sm" style="margin-right: 10px;"><i class="fa fa-shopping-cart"></i></button>--}}
+                                        <div class="card-footer" style="background-color: white;">
+                                            <div class="row">
+                                                <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart"><i class="fa fa-shopping-cart"></i></button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>

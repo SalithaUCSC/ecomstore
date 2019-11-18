@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\WishList;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Darryldecode\Cart\Cart;
 use Darryldecode\Cart\CartCondition;
 use Illuminate\Http\Request;
@@ -48,8 +49,6 @@ class CartController extends Controller
                 'image' => $request->img,
                 'slug' => $request->slug
             )
-//        ,
-//            'conditions' => [$cond]
         ));
         return redirect()->route('cart')->with('success_msg', 'Item is Added to Cart!');
     }
@@ -102,7 +101,29 @@ class CartController extends Controller
         return redirect()->route('cart')->with('success_msg', 'Item is Removed From WishList!');
     }
 
-    public function checkout(){
-        return view('cart.checkout')->withTitle('E-COMMERCE STORE | CHECKOUT');
+    public function move_to_cart(Request $request){
+        $wish = WishList::where('id', $request->id)->get()->first();;
+
+        $wish->delete();
+        \Cart::add(array(
+            'id' => $wish->prod_id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'quantity' => $request->quantity,
+            'attributes' => array(
+                'image' => $request->image,
+                'slug' => $request->slug
+            )
+        ));
+        return redirect()->route('cart')->with('success_msg', 'Item is Removed From WishList!');
     }
+
+    public function checkout(){
+        $cartCollection = \Cart::getContent();
+        return view('cart.checkout')
+            ->with([
+                'cartCollection' => $cartCollection
+            ])->withTitle('E-COMMERCE STORE | CHECKOUT');
+    }
+
 }
