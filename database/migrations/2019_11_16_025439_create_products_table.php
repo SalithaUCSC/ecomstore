@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->double('shipping_cost');
             $table->text('description');
             $table->integer('category_id');
-            $table->string('brand');
+            $table->unsignedInteger('brand_id')->unsigned();
             $table->string('image_path');
             $table->timestamps();
         });

@@ -10,7 +10,7 @@
                 <li class="breadcrumb-item active" aria-current="page">{{ $brand->name }}</li>
             </ol>
         </nav>
-        <h4>Products By Category: {{ $brand->name }}</h4>
+        <h4>Products By Brand: {{ $brand->name }}</h4>
         <hr>
         <div class="row" style="margin-left: -10px;">
             @foreach($products as $pro)

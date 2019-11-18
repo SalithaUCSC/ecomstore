@@ -2,17 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+use App\WishList;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
     public function index()
     {
         $cartCollection = \Cart::getContent();
-//        dd($cartCollection);
-        return view('cart.index')->withTitle('E-COMMERCE STORE | CART')
-            ->with(['cartCollection' => $cartCollection]);
+
+        if(Auth::check()) {
+            $wishes = WishList::where('user_id', auth()->user()->id)->get();
+            return view('cart.index')->withTitle('E-COMMERCE STORE | CART')
+                ->with([
+                    'cartCollection' => $cartCollection,
+                    'wishesList' => $wishes
+                ]);
+        }
+        else {
+            return view('cart.index')->withTitle('E-COMMERCE STORE | CART')
+                ->with(['cartCollection' => $cartCollection]);
+        }
+
+
     }
 
     public function store(Request $request)
@@ -38,5 +53,35 @@ class CartController extends Controller
     public function remove(Request $request){
         \Cart::remove($request->id);
         return redirect()->route('cart')->with('success_msg', 'Item is removed!');
+    }
+
+    public function wishlist(Request $request){
+        $products = WishList::where('prod_id', $request->id)->where('user_id', auth()->user()->id)->get();
+        if (count($products) > 0) {
+            \Cart::remove($request->id);
+            return redirect()->route('cart')->with('alert_msg', 'Item is Already Saved..Check WishList!');
+        } else {
+            WishList::create([
+                'user_id' => $request->user_id,
+                'prod_id' => $request->id,
+                'prod_name' => $request->name,
+                'prod_price' => $request->price,
+                'prod_quantity' => $request->quantity,
+                'prod_slug' => $request->slug,
+                'prod_image' => $request->image
+            ]);
+            \Cart::remove($request->id);
+            return redirect()->route('cart')->with('success_msg', 'Item is Saved For Later!');
+        }
+    }
+
+    public function remove_wish(Request $request){
+        $wish = WishList::where('id', $request->id)->get()->first();;
+        $wish->delete();
+        return redirect()->route('cart')->with('success_msg', 'Item is Removed From WishList!');
+    }
+
+    public function checkout(){
+        return view('cart.checkout')->withTitle('E-COMMERCE STORE | CHECKOUT');
     }
 }

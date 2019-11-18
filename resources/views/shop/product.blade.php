@@ -15,9 +15,10 @@
             </div>
             <div class="col-lg-8">
                 <h4>{{ $product->name }}</h4><br>
+                <p content="text-muted">{{ $product->brand->name }}</p>
                 <p class="text-muted">{{ $product->details }}</p>
                 <p>${{ $product->price }}</p>
-                <p>${{ $product->shipping_cost }}</p>
+{{--                <p>${{ $product->shipping_cost }}</p>--}}
                 <p>{{ $product->description }}</p>
                 <br>
                 <form action="{{ route('cart.store') }}" method="POST">
@@ -30,10 +31,10 @@
                     <input type="hidden" value="{{ $product->slug }}" id="slug" name="slug">
                     <div class="row">
                         <input type="number" class="form-control" id="quantity" name="quantity" style="width: 100px; margin-right: 10px;">
-                        <button class="btn btn-dark btn-md">Add To Cart</button>
+                        <button class="btn btn-dark btn-md" style="margin-right: 10px;">Add To Cart</button>
                     </div>
-
                 </form>
+
 
             </div>
         </div>

@@ -41,20 +41,18 @@ class PageController extends Controller
 
     public function category($catId)
     {
-        $products = Product::where('category_id', $catId)->get();
         $category = Category::where('id', $catId)->get()->first();
         return view('shop.category')->withTitle('E-COMMERCE STORE | CATEGORY')->with([
-            'products' => $products,
+            'products' => $category->products,
             'category' => $category
         ]);
     }
 
     public function brand($brId)
     {
-        $products = Product::where('brand', $brId)->get();
         $brand = Brand::where('id', $brId)->get()->first();
         return view('shop.brand')->withTitle('E-COMMERCE STORE | BRAND')->with([
-            'products' => $products,
+            'products' => $brand->products,
             'brand' => $brand
         ]);
     }
@@ -65,7 +63,7 @@ class PageController extends Controller
         $mightLike = Product::where('slug', '!=', $proId)
 //                    ->where('category_id', $product->category->id)
 //                    ->where('name', 'like', '%'.$product->name.'%')
-                    ->where('brand', $product->brand)
+                    ->where('brand_id', $product->brand)
                     ->get();
 
         return view('shop.product')->withTitle('E-COMMERCE STORE | PRODUCT')->with([

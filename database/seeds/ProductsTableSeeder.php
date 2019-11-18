@@ -20,7 +20,7 @@ class ProductsTableSeeder extends Seeder
             'shipping_cost' => 29.99,
             'description' => 'MackBook Pro',
             'category_id' => 1,
-            'brand' => 1,
+            'brand_id' => 1,
             'image_path' => 'macbook-pro.png'
         ]);
 
@@ -32,7 +32,7 @@ class ProductsTableSeeder extends Seeder
             'shipping_cost' => 19.99,
             'description' => 'Dell Vostro 3557',
             'category_id' => 1,
-            'brand' => 2,
+            'brand_id' => 2,
             'image_path' => 'dell-v3557.png'
         ]);
 
@@ -44,7 +44,7 @@ class ProductsTableSeeder extends Seeder
             'shipping_cost' => 14.99,
             'description' => 'iPhone 11 Pro',
             'category_id' => 2,
-            'brand' => 1,
+            'brand_id' => 1,
             'image_path' => 'iphone-11-pro.png'
         ]);
 
@@ -56,7 +56,7 @@ class ProductsTableSeeder extends Seeder
             'shipping_cost' => 1.89,
             'description' => 'Remax 610D Headset',
             'category_id' => 3,
-            'brand' => 3,
+            'brand_id' => 3,
             'image_path' => 'remax-610d.jpg'
         ]);
 
@@ -68,7 +68,7 @@ class ProductsTableSeeder extends Seeder
             'shipping_cost' => 12.59,
             'description' => 'Samsung LED TV',
             'category_id' => 4,
-            'brand' => 4,
+            'brand_id' => 4,
             'image_path' => 'samsung-led-24.png'
         ]);
 
@@ -80,7 +80,7 @@ class ProductsTableSeeder extends Seeder
             'shipping_cost' => 13.39,
             'description' => 'Samsung Digital Camera',
             'category_id' => 5,
-            'brand' => 4,
+            'brand_id' => 4,
             'image_path' => 'samsung-mv800.jpg'
         ]);
 
@@ -92,7 +92,7 @@ class ProductsTableSeeder extends Seeder
             'shipping_cost' => 6.79,
             'description' => 'Huawei GR 5 2017',
             'category_id' => 2,
-            'brand' => 5,
+            'brand_id' => 5,
             'image_path' => 'gr5-2017.jpg'
         ]);
     }

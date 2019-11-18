@@ -80,9 +80,9 @@
                 </div>
 
                 <hr>
-                <form action="{{ route('search.results') }}" method="GET" class="form-inline my-2 my-lg-0">
+                <form action="{{ route('search.results') }}" method="GET" class="form-inline my-20">
                     <input class="form-control form-control-sm mr-sm-2" type="search" id="search" name="search"
-                           placeholder="Search Product" aria-label="Search" style="width: 700px;">
+                           placeholder="Search Product" aria-label="Search" style="width: 740px;">
                     <button class="btn btn-outline-dark btn-sm my-2 my-sm-0" type="submit" id="search_btn">Search</button>
                 </form>
                 <div id="products_list"></div>

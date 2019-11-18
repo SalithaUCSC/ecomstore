@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PageController@index')->name('index');
+Route::get('/', 'PageController@shop');
 
 Auth::routes(['verify' => true]);
 
@@ -31,12 +31,12 @@ Route::get('/search_results', 'PageController@search_results')->name('search.res
 Route::get('/search_price', 'PageController@search_price')->name('search.price');
 
 Route::get('/cart', 'CartController@index')->name('cart');
-
-Route::post('/clear', 'CartController@clear')->name('cart.clear');
-
-Route::post('/remove', 'CartController@remove')->name('cart.remove');
-
 Route::post('/cart', 'CartController@store')->name('cart.store');
+Route::post('/clear', 'CartController@clear')->name('cart.clear');
+Route::post('/remove', 'CartController@remove')->name('cart.remove');
+Route::get('/checkout', 'CartController@checkout')->name('cart.checkout');
+Route::post('/wishlist', 'CartController@wishlist')->name('cart.wishlist');
+Route::post('/remove_wish', 'CartController@remove_wish')->name('wishlist.remove');
 
 Route::post('/save', 'CartController@save')->name('cart.save');
 

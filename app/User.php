@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -36,4 +36,8 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function wishlist(){
+        return $this->hasOne('App\WishList');
+    }
 }
