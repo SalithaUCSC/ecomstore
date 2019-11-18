@@ -18,9 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('shop') }}">SHOP</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('blog') }}">BLOG</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('blog') }}">BLOG</a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">ABOUT</a>
                 </li>

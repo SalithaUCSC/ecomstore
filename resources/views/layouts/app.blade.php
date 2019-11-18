@@ -51,11 +51,12 @@
 
             });
 
-            $(document).on('click', 'li', function(){
+            $(document).on('click', '.list-group-item', function(){
                 var value = $(this).text();
                 $('#search').val(value);
                 $('#products_list').html("");
             });
+
         });
     </script>
 </body>

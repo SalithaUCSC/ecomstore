@@ -37,6 +37,7 @@ Route::post('/remove', 'CartController@remove')->name('cart.remove');
 Route::get('/checkout', 'CartController@checkout')->name('cart.checkout');
 Route::post('/wishlist', 'CartController@wishlist')->name('cart.wishlist');
 Route::post('/remove_wish', 'CartController@remove_wish')->name('wishlist.remove');
+Route::post('/update', 'CartController@update_cart')->name('cart.update');
 
 Route::post('/save', 'CartController@save')->name('cart.save');
 

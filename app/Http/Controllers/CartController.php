@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\WishList;
 use Darryldecode\Cart\Cart;
+use Darryldecode\Cart\CartCondition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,6 +33,12 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
+        $cond = new CartCondition(array(
+            'name' => 'Item Gift Pack 25.00',
+            'type' => 'promo',
+            'value' => '-25',
+        ));
+
         \Cart::add(array(
             'id' => $request->id,
             'name' => $request->name,
@@ -41,6 +48,8 @@ class CartController extends Controller
                 'image' => $request->img,
                 'slug' => $request->slug
             )
+//        ,
+//            'conditions' => [$cond]
         ));
         return redirect()->route('cart')->with('success_msg', 'Item is Added to Cart!');
     }
@@ -53,6 +62,18 @@ class CartController extends Controller
     public function remove(Request $request){
         \Cart::remove($request->id);
         return redirect()->route('cart')->with('success_msg', 'Item is removed!');
+    }
+
+    public function update_cart(Request $request){
+//        dd($request);
+        \Cart::update($request->id,
+            array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $request->quantity
+                ),
+        ));
+        return redirect()->route('cart')->with('success_msg', 'Cart is Updated!');
     }
 
     public function wishlist(Request $request){
