@@ -43,8 +43,3 @@ Route::post('/save', 'CartController@save')->name('cart.save');
 Route::get('/about', 'PageController@about')->name('about');
 
 Route::get('/blog', 'PageController@blog')->name('blog');
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
