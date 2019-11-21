@@ -1,0 +1,32 @@
+#app {
+    font-family: 'Nunito', sans-serif;
+}
+
+.parsley-errors-list li {
+    list-style: none;
+    margin-top: 20px;
+    margin-left: -40px;
+}
+.parsley-required, .parsley-type, .parsley-length{
+    color: darkred;
+    font-weight: bold;
+}
+
+.footer .list-unstyled li a {
+    color: #D4D4D7 !important;
+    font-size: 16px;
+}
+
+.footer {
+    background-color: #222222;
+}
+
+.footer h5, #brand {
+    font-size: 20px;
+    color: #D4D4D7 !important;
+}
+
+.footer #contact{
+    color: #D4D4D7 !important;
+    font-size: 18px;
+}
