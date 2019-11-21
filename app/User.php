@@ -38,6 +38,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function wishlist(){
-        return $this->hasOne('App\WishList');
+        return $this->hasOne(WishList::class);
     }
 }

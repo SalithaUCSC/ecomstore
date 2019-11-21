@@ -51,7 +51,7 @@ class ProductsTableSeeder extends Seeder
         Product::create([
             'name' => 'Remax 610D Headset',
             'slug' => 'remax-610d',
-            'details' => '6.1 inch, 64GB 4GB RAM',
+            'details' => '3.5mm plug Endurable, stylish metallic look, 1.2-meter nylon braided cable',
             'price' => 8.99,
             'shipping_cost' => 1.89,
             'description' => 'Remax 610D Headset',

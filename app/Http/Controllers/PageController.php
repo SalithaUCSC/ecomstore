@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Category;
 use App\Product;
+use App\Review;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -59,7 +60,8 @@ class PageController extends Controller
 
     public function product($proId)
     {
-        $product = Product::where('slug', $proId)->get()->first();
+        $product = Product::where('id', $proId)->get()->first();
+        $reviews = Review::where('prod_id', $proId)->orderBy('created_at', 'desc')->get();
         $mightLike = Product::where('slug', '!=', $proId)
 //                    ->where('category_id', $product->category->id)
 //                    ->where('name', 'like', '%'.$product->name.'%')
@@ -68,6 +70,7 @@ class PageController extends Controller
 
         return view('shop.product')->withTitle('E-COMMERCE STORE | PRODUCT')->with([
             'product' => $product,
+            'reviews' => $reviews,
             'mightLike' => $mightLike
         ]);
     }
@@ -106,6 +109,25 @@ class PageController extends Controller
         $data = Product::where('price', '>=', $request->min)->where('price', '<=', $request->max)->get();
 //        dd($data);
         return view('shop.search')->withTitle('E-COMMERCE STORE | SEARCH')->with(['results' => $data]);
+    }
+
+    public function review(Request $request){
+        Review::create([
+            'user_id' => $request->user_id,
+            'prod_id' => $request->prod_id,
+            'rate' => $request->rate,
+            'name' => $request->name,
+            'email' => $request->email,
+            'comment' => $request->comment
+        ]);
+        return redirect()->route('product', ['proId' => $request->prod_id])->with('success_msg', 'Your Review is Added!');
+    }
+
+    public function remove_review(Request $request){
+        $review = Review::where('id', $request->review_id)->get()->first();
+        $review->delete();
+        return redirect()->route('product', ['proId' => $request->prod_id])->with('success_msg', 'Your Review is Deleted!');
+//        dd($review);
     }
 
     public function about()

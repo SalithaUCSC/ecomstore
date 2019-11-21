@@ -30,6 +30,10 @@ class ComposerStaticInitfb35c30fe2c615a97aba9d6ebe74b714
     );
 
     public static $prefixLengthsPsr4 = array (
+        'w' => 
+        array (
+            'willvincent\\Rateable\\' => 21,
+        ),
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
@@ -156,6 +160,10 @@ class ComposerStaticInitfb35c30fe2c615a97aba9d6ebe74b714
     );
 
     public static $prefixDirsPsr4 = array (
+        'willvincent\\Rateable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable',
+        ),
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
@@ -486,6 +494,7 @@ class ComposerStaticInitfb35c30fe2c615a97aba9d6ebe74b714
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Review' => __DIR__ . '/../..' . '/app/Review.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\WishList' => __DIR__ . '/../..' . '/app/WishList.php',
         'BrandsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/BrandsTableSeeder.php',
@@ -4599,6 +4608,10 @@ class ComposerStaticInitfb35c30fe2c615a97aba9d6ebe74b714
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'willvincent\\Rateable\\MigrationCommand' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/commands/MigrationCommand.php',
+        'willvincent\\Rateable\\Rateable' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable/Rateable.php',
+        'willvincent\\Rateable\\RateableServiceProvider' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable/RateableServiceProvider.php',
+        'willvincent\\Rateable\\Rating' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable/Rating.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

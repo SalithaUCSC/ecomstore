@@ -29,6 +29,8 @@ Route::get('/shop/{proId}', 'PageController@product')->name('product');
 Route::get('/search', 'PageController@search')->name('search');
 Route::get('/search_results', 'PageController@search_results')->name('search.results');
 Route::get('/search_price', 'PageController@search_price')->name('search.price');
+Route::post('/review', 'PageController@review')->name('review');
+Route::post('/remove_review', 'PageController@remove_review')->name('review.remove');
 
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::post('/cart', 'CartController@store')->name('cart.store');
@@ -41,7 +43,7 @@ Route::post('/move_to_cart', 'CartController@move_to_cart')->name('wishlist.move
 Route::post('/update', 'CartController@update_cart')->name('cart.update');
 Route::post('/stripe', 'CartController@stripePost')->name('stripe.post');
 //Route::get('/stripe', 'CartController@index');
-Route::post('/store', 'CartController@stripePost');
+//Route::post('/store', 'CartController@stripePost');
 
 Route::post('/save', 'CartController@save')->name('cart.save');
 

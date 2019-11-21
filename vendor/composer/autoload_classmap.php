@@ -35,6 +35,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Review' => $baseDir . '/app/Review.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\WishList' => $baseDir . '/app/WishList.php',
     'BrandsTableSeeder' => $baseDir . '/database/seeds/BrandsTableSeeder.php',
@@ -4148,4 +4149,8 @@ return array(
     'phpDocumentor\\Reflection\\Types\\String_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/String_.php',
     'phpDocumentor\\Reflection\\Types\\This' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/This.php',
     'phpDocumentor\\Reflection\\Types\\Void_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+    'willvincent\\Rateable\\MigrationCommand' => $vendorDir . '/willvincent/laravel-rateable/src/commands/MigrationCommand.php',
+    'willvincent\\Rateable\\Rateable' => $vendorDir . '/willvincent/laravel-rateable/src/Rateable/Rateable.php',
+    'willvincent\\Rateable\\RateableServiceProvider' => $vendorDir . '/willvincent/laravel-rateable/src/Rateable/RateableServiceProvider.php',
+    'willvincent\\Rateable\\Rating' => $vendorDir . '/willvincent/laravel-rateable/src/Rateable/Rating.php',
 );

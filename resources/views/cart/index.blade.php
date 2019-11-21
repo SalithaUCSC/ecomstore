@@ -52,7 +52,7 @@
                         </div>
                         <div class="col-lg-5">
                             <p>
-                                <b><a href="/shop/{{ $item->attributes->slug }}">{{ $item->name }}</a></b><br>
+                                <b><a href="/shop/{{ $item->id }}">{{ $item->name }}</a></b><br>
                                 <b>Price: </b>${{ $item->price }}<br>
                                 <b>Sub Total: </b>${{ \Cart::get($item->id)->getPriceSum() }}<br>
 {{--                                <b>With Discount: </b>${{ \Cart::get($item->id)->getPriceSumWithConditions() }}--}}
@@ -86,7 +86,7 @@
                                         <button class="btn btn-danger btn-sm"><i class="fa fa-heart"></i></button>
                                     </form>
                                 @else
-                                    <button class="btn btn-success btn-sm" style="margin-right: 10px; height: 35px;" data-toggle="modal" data-target="#loginModal"><i class="fa fa-heart"></i></button>
+                                    <button class="btn btn-danger btn-sm" style="margin-right: 10px; height: 35px;" data-toggle="modal" data-target="#loginModal"><i class="fa fa-heart"></i></button>
                                     <div class="modal fade" id="loginModal" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -145,7 +145,7 @@
                                 </div>
                                 <div class="col-lg-7">
                                     <p>
-                                    <h5><a href="/shop/{{ $wish->prod_slug }}">{{ $wish->prod_name }}</a></h5>
+                                    <h5><a href="/shop/{{ $wish->prod_id }}">{{ $wish->prod_name }}</a></h5>
                                     <b>Price: </b>${{ $wish->prod_price }}<br>
                                     </p>
                                 </div>

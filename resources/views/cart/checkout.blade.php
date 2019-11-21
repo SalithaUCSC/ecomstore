@@ -38,16 +38,14 @@
                         <strong>${{ \Cart::getTotal()}}</strong>
                     </li>
                 </ul>
-
-                <form class="card p-2">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Promo code">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-secondary">Redeem</button>
-                        </div>
-                    </div>
-                </form>
-                <br>
+{{--                <form class="card p-2">--}}
+{{--                    <div class="input-group">--}}
+{{--                        <input type="text" class="form-control" placeholder="Promo code">--}}
+{{--                        <div class="input-group-append">--}}
+{{--                            <button type="submit" class="btn btn-secondary">Redeem</button>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
                 <div class="card">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><i class="fa fa-check-circle-o"></i> Original Products</li>

@@ -82,7 +82,7 @@
                 <hr>
                 <form action="{{ route('search.results') }}" method="GET" class="form-inline my-20">
                     <input class="form-control form-control-sm mr-sm-2" type="search" id="search" name="search"
-                           placeholder="Search Product" aria-label="Search" style="width: 740px;">
+                           placeholder="Search Product" aria-label="Search" style="width: 700px;">
                     <button class="btn btn-outline-dark btn-sm my-2 my-sm-0" type="submit" id="search_btn">Search</button>
                 </form>
                 <div id="products_list"></div>
@@ -93,7 +93,7 @@
                             <div class="card" style="margin-bottom: 20px; height: auto;">
                                 <img src="/images/{{ $pro->image_path }}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <a href="/shop/{{ $pro->slug }}"><h6 class="card-title">{{ $pro->name }}</h6></a>
+                                    <a href="/shop/{{ $pro->id }}"><h6 class="card-title">{{ $pro->name }}</h6></a>
                                     <p>${{ $pro->price }}</p>
                                     <form action="{{ route('cart.store') }}" method="POST">
                                         {{ csrf_field() }}
